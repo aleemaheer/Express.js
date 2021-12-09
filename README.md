@@ -23,3 +23,7 @@ and you have to type the command to run the server:
 ```bash
     npm run dev
 ```
+5. To see or track dates and time you have to install the moment by typing the command:
+```bash
+    npm i moment
+```
