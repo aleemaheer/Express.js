@@ -6,24 +6,21 @@ const logger = require('./Reference/logger');
 const app = express();
 
 // Init middleware
-app.use(logger);
+//app.use(logger);
 
-// Gets all users
+// Body parser middleware
 
-app.get('/api/members', (req, res) => {
-    res.json(members);
-})
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// Get single member
-
-app.get('/api/members/:name', (req, res) => {
-    res.send(req.params.name);
-    console.log(req.params.name);
-})
 
 // Set static folder
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Members api routes
+
+app.use('/api/members', require('./routes/api/members'));
 
 /*
 app.get('/', (req, res) => {
