@@ -14,6 +14,13 @@ app.get('/api/members', (req, res) => {
     res.json(members);
 })
 
+// Get single member
+
+app.get('/api/members/:name', (req, res) => {
+    res.send(req.params.name);
+    console.log(req.params.name);
+})
+
 // Set static folder
 
 app.use(express.static(path.join(__dirname, 'public')));
